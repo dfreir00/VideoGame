@@ -6,6 +6,7 @@ public class generarEstimulos : MonoBehaviour
 {
     public GameObject prefab;
     public int numEstimulos;
+    private int fallos = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +41,13 @@ public class generarEstimulos : MonoBehaviour
             
         }
 
+    }
+
+    //metodo para saber el numero de fallos
+    void OnMouseDown()
+    {
+       
+        fallos++;
     }
 
 }
