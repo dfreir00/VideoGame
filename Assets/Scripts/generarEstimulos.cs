@@ -28,10 +28,10 @@ public class generarEstimulos : MonoBehaviour
             //genero posiciones aleatorias
             //establecen la situacion dentro del circuloExterior
             //establecen la situacion dentro del circuloExterior
-            float posicionX = Random.Range(-5f, 5f);
-            float posicionZ = Random.Range(-5f, 5f);
+            float posicionX = Random.Range(-110f, 110f);
+            float posicionZ = Random.Range(-110f, 110f);
             //posicionY establece la altura a la que se genera el estimulo
-            float posicionY = 1f;
+            float posicionY = 6f;
             
             //estos estimulos son generados como hijos del circuloInterior
             //se les asigna una posicion aleatoria
