@@ -94,6 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   letraCentral: {fileID: 2283698973344197619}
+  circulo: {fileID: 2620813978470638921, guid: 61034ef0983af9f42b217fb35111b666, type: 3}
 --- !u!1 &2283698973344197612
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,11 +197,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2283698972789528014}
     m_Modifications:
-    - target: {fileID: 6547029663030866680, guid: 4f722e05de1e42f49aa3d60043571bc7,
-        type: 3}
-      propertyPath: m_Name
-      value: LetraCentral
-      objectReference: {fileID: 0}
     - target: {fileID: 6547029663030866661, guid: 4f722e05de1e42f49aa3d60043571bc7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -265,6 +261,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547029663030866680, guid: 4f722e05de1e42f49aa3d60043571bc7,
+        type: 3}
+      propertyPath: m_Name
+      value: LetraCentral
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f722e05de1e42f49aa3d60043571bc7, type: 3}

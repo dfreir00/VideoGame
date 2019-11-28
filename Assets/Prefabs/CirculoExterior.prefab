@@ -10,10 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2004622019439029957}
   - component: {fileID: 2004622019439029954}
-  - component: {fileID: 2004622019439029959}
   - component: {fileID: 2004622019439029956}
-  - component: {fileID: 995397647}
-  - component: {fileID: 995397648}
+  - component: {fileID: 2620813978470638921}
   m_Layer: 0
   m_Name: CirculoExterior
   m_TagString: Untagged
@@ -84,18 +82,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2004622019439029959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2004622019439029955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10210ef79a253144bac68330c340a90c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &2004622019439029956
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -109,7 +95,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.0000002, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &995397647
+--- !u!114 &2620813978470638921
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,24 +104,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 2004622019439029955}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98665ef3205fb8646900563e31482ca4, type: 3}
+  m_Script: {fileID: 11500000, guid: f48a97a715506424087a97dd0c5583f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 3277844718706577098, guid: 82166c31c4ff72e4f8cd16a512dfa138, type: 3}
-  numEstimulos: 20
---- !u!114 &995397648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2004622019439029955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fc1bd126a6b74f4184d6b9aa856bcfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocidad: 100
+  velocidad: 0
+  numeroEstimulos: 0
+  tamanyoLetra: 0
+  tamanyoEstimulos: 0
+  letra: 
+  colorCirculo: {r: 0, g: 0, b: 0, a: 0}
+  colorEstimulos: {r: 0, g: 0, b: 0, a: 0}
+  colorNumeros: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &2283698972604034058
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -203,6 +183,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2283698972789528008, guid: 960e80f2cfc60274e85bcf78746a4e81,
+        type: 3}
+      propertyPath: circulo
+      value: 
+      objectReference: {fileID: 2620813978470638921}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 960e80f2cfc60274e85bcf78746a4e81, type: 3}
 --- !u!4 &217561540 stripped
