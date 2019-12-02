@@ -6,10 +6,10 @@ public class CirculoExterior : MonoBehaviour
 {
     private Datos config;
     private FuncionesBBDD bbdd;
-
-  
     private int fallos = 0;
+
     public GameObject prefab;
+    public GameObject letraUsuario;
     public int velocidad;
     public int numeroEstimulos;
     public int tamanyoLetra;
@@ -34,15 +34,15 @@ public class CirculoExterior : MonoBehaviour
 
     }
 
-    public void obtenemosColorEstimulos()
+    public void asignarColorEstimulos()
     {
-
+        Renderer renderEstimulo = prefab.GetComponent<Renderer>();
         string[] vec = config.colorEstimulos.Split('.');
         colorEstimulos.r = float.Parse(vec[0]) / 255f;
         colorEstimulos.g = float.Parse(vec[1]) / 255f;
         colorEstimulos.b = float.Parse(vec[2]) / 255f;
 
-        colorEstimulos = new Color(colorEstimulos.r, colorEstimulos.g, colorEstimulos.b, 1);
+        renderEstimulo.material.SetColor("_Color", new Color(colorEstimulos.r, colorEstimulos.g, colorEstimulos.b, 1));
 
 
     }
@@ -59,10 +59,10 @@ public class CirculoExterior : MonoBehaviour
 
     }
 
-    public string obtenerLetra()
+    public void asignamosLetra()
     {
-        letra = config.letra;
-        return letra;
+        TextMesh letraMesh = letraUsuario.GetComponent<TextMesh>();
+        letraMesh.text = letra;
     }
 
     // Start is called before the first frame update
@@ -78,18 +78,19 @@ public class CirculoExterior : MonoBehaviour
         numeroEstimulos = config.numeroEstimulos;
         tamanyoLetra = config.tamanyoLetra;
         tamanyoEstimulos = config.tamanyoEstimulos;
-  
+        letra = config.letra;
 
-        //Asignamos el color del circulo
+
+        asignamosLetra();
+
+        //Asignamos los colores elegidos por el usuario
         asignarColorCirculo();
+        asignarColorEstimulos();
 
         //Guardamos en las variables publicas el resto de colores
-        obtenemosColorEstimulos();
         obtenemosColorNumeros();
 
         //Asignamos las variables del estimulo
-        //SpriteRenderer estimulo = prefab.GetComponent<SpriteRenderer>();
-        //estimulo.color = Color.red;
         generarEstimulo();
 
     }

@@ -6,11 +6,13 @@ public class cambiarValoresEstimulo : MonoBehaviour
 {
     public int tamanyo;
     private Renderer colorEstimulo;
+    private CirculoExterior circulo;
+
     // Start is called before the first frame update
     void Start()
     {
         cambiarTamanyo();
-        cambiarColorEstimulo();
+        //cambiarColorEstimulo();
         etiquetarEstimulo();
     }
 
@@ -66,9 +68,10 @@ public class cambiarValoresEstimulo : MonoBehaviour
     //metodo que me cambia el color de los estimulos
     public void cambiarColorEstimulo()
     {
- 
         colorEstimulo = GetComponent<Renderer>();
-        colorEstimulo.material.SetColor("_Color", new Color(0f, 0f, 1f));
+   
+     
+        
 
     }
 }
