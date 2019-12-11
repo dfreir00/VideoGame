@@ -99,7 +99,31 @@ public class CirculoExterior : MonoBehaviour
     void Update()
     {
         rotar();
+
+       
     }
+
+    /*public void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.name.Equals("Estimulo(Clone)"))
+        {
+            Debug.Log("Chocan");
+            int posx = Random.Range(-110, 110);
+            int posz = Random.Range(-110, 110);
+
+            //Para que no se generen dentro del circulo interior
+            while (((posx < 40) && (-40 < posx)) && ((posz < 40) && (-40 < posz)))
+            {
+                posx = Random.Range(-110, 110);
+                posz = Random.Range(-110, 110);
+            }
+            //Destroy(collision.gameObject);
+            //collision.gameObject.transform.position = new Vector3(gameObject.transform.position.x + 1, gameObject.transform.position.y, gameObject.transform.position.z - 1);
+            collision.gameObject.transform.position = new Vector3(posx, collision.gameObject.transform.position.y, posz);
+
+        }
+
+    }*/
 
     public void rotar()
     {
@@ -114,8 +138,15 @@ public class CirculoExterior : MonoBehaviour
             //genero posiciones aleatorias
             //establecen la situacion dentro del circuloExterior
             //establecen la situacion dentro del circuloExterior
-            float posicionX = Random.Range(-110f, 110f);
-            float posicionZ = Random.Range(-110f, 110f);
+            float posicionX = Random.Range(-110f, 110f); 
+            float posicionZ = Random.Range(-110f, 110f); 
+
+            while (((posicionX < 40) && (-40 < posicionX)) && ((posicionZ < 40) && (-40 < posicionZ)))
+            {
+                 posicionX = Random.Range(-110f, 110f);
+                 posicionZ = Random.Range(-110f, 110f);
+            }
+           
             //posicionY establece la altura a la que se genera el estimulo
             float posicionY = 6f;
 
@@ -128,6 +159,9 @@ public class CirculoExterior : MonoBehaviour
         }
 
     }
+
+    //Metodo que detecta las colisiones entre los estimulos
+
 
     //metodo para saber el numero de fallos
     void OnMouseDown()
