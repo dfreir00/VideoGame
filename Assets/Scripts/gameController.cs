@@ -14,7 +14,7 @@ public class gameController : MonoBehaviour
     private GameState estado = GameState.Idle;//Estado actual del juego
     private Text contador;//Texto de la cuenta atras
     private FuncionesBBDD bbdd;
-    private float timeCuentaAtras = 10;//Segundos cuenta atras
+    private float timeCuentaAtras = 5;//Segundos cuenta atras
     private float timeFin = 3;//Tiempo de espera al terminar
     private float timeTotal = 0;//Tiempo actual de juego
     private string[] args;//guardo los argumentos del proceso
@@ -71,7 +71,7 @@ public class gameController : MonoBehaviour
 
             //-----------------------------------------------------AÑADIR FUNCIONALIDAD DEL JUEGO----------------------------------------
             // EJEMPLO CUANDO CLICAMOS ACTUA
-            if (Input.GetMouseButtonDown(0))
+            /*if (Input.GetMouseButtonDown(0))
             {
 
                 //bbdd.insertarResultados(crearJSONResultados());
@@ -80,7 +80,7 @@ public class gameController : MonoBehaviour
                 uiFin.SetActive(true);
                 estado = GameState.End;
 
-            }
+            }*/
             //----------------------------------------------------------------------------------------------------------------------------
         }
         //Si el juego ha terminado
