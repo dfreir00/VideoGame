@@ -14,6 +14,7 @@ public class gameController : MonoBehaviour
     private GameState estado = GameState.Idle;//Estado actual del juego
     private Text contador;//Texto de la cuenta atras
     private FuncionesBBDD bbdd;
+    private CirculoExterior circuloScript;
     private float timeCuentaAtras = 5;//Segundos cuenta atras
     private float timeFin = 3;//Tiempo de espera al terminar
     private float timeTotal = 0;//Tiempo actual de juego
@@ -69,19 +70,15 @@ public class gameController : MonoBehaviour
             //Sumamos segundos al tiempo de juego
             timeTotal += Time.deltaTime;
 
-            //-----------------------------------------------------AÑADIR FUNCIONALIDAD DEL JUEGO----------------------------------------
-            // EJEMPLO CUANDO CLICAMOS ACTUA
-            /*if (Input.GetMouseButtonDown(0))
+            if(circulo.transform.childCount == 1)
             {
-
-                //bbdd.insertarResultados(crearJSONResultados());
-                //bbdd.insertarEstado();
+                bbdd.insertarResultados(crearJSONResultados());
+                bbdd.insertarEstado();
                 circulo.SetActive(false);
                 uiFin.SetActive(true);
                 estado = GameState.End;
-
-            }*/
-            //----------------------------------------------------------------------------------------------------------------------------
+            }
+            
         }
         //Si el juego ha terminado
         else if (estado == GameState.End)

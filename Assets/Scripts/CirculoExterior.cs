@@ -6,7 +6,7 @@ public class CirculoExterior : MonoBehaviour
 {
     private Datos config;
     private FuncionesBBDD bbdd;
-    private int fallos = 0;
+    public int fallos = 0;
     private bool quedaEstimulo = false;
 
     public GameObject prefab;
@@ -88,6 +88,7 @@ public class CirculoExterior : MonoBehaviour
             GameObject hijo = Instantiate(prefab) as GameObject;
             hijo.transform.parent = gameObject.transform;
             hijo.transform.position = new Vector3(posicionX, posicionY, posicionZ);
+            
 
         }
 

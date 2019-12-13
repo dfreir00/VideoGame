@@ -19,6 +19,10 @@ public class FuncionesBBDD : MonoBehaviour
 
     public void insertarResultados(Resultados objeto)
     {
+        //Extraigo el id pasado como argumento para realizar las consultas
+        args = Environment.GetCommandLineArgs();
+        id = int.Parse(args[1]);
+
         //Conectar a la base de datos
         conectar();
 
@@ -99,9 +103,13 @@ public class FuncionesBBDD : MonoBehaviour
 
     public void insertarEstado()
     {
+        //Extraigo el id pasado como argumento para realizar las consultas
+        args = Environment.GetCommandLineArgs();
+        id = int.Parse(args[1]);
+
+
         //Conectar a la base de datos
         conectar();
-
         //Abrir la conexion
         conexion.Open();
 
