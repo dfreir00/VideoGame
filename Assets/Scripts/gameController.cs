@@ -33,6 +33,7 @@ public class gameController : MonoBehaviour
 
         //Instancio la clase de la base de datos
         bbdd = new FuncionesBBDD();
+        circuloScript = new CirculoExterior();
     }
 
     // Update is called once per frame
@@ -102,8 +103,8 @@ public class gameController : MonoBehaviour
     {
         Resultados resultadosJSON = new Resultados()
         {
-            numeroClicks = 20,
-            fallos = 10,
+            numeroClicks = circuloScript.NumeroEstimulos,
+            fallos = circuloScript.Fallos,
             tiempo = timeTotal.ToString("f2")
 
         };

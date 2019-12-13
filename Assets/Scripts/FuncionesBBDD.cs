@@ -13,7 +13,7 @@ public class FuncionesBBDD : MonoBehaviour
     {
         //192.168.4.59 proconsi
         //192.168.1.42 casa
-        string connectionString = @"Data Source =192.168.1.42 ; user id = juego;password = root;Initial Catalog = VideoJuegosIristea;";
+        string connectionString = @"Data Source =192.168.4.59 ; user id = juego;password = root;Initial Catalog = VideoJuegosIristea;";
         conexion = new SqlConnection(connectionString);
     }
 
