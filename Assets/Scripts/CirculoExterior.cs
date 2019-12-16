@@ -31,6 +31,7 @@ public class CirculoExterior : MonoBehaviour
         GameObject circulo = GameObject.Find("CirculoExterior");
         SpriteRenderer spriteRenderCirculo = circulo.GetComponent<SpriteRenderer>();
         string[] vec = config.colorCirculoExterior.Split('.');
+        //Dividir entre 255 para escalarlo entre 0 y 1
         colorCirculo.r = float.Parse(vec[0]) / 255f;
         colorCirculo.g = float.Parse(vec[1]) / 255f;
         colorCirculo.b = float.Parse(vec[2]) / 255f;
@@ -41,13 +42,15 @@ public class CirculoExterior : MonoBehaviour
     {
         Renderer renderEstimulo = prefab.GetComponent<Renderer>();
         string[] vec = config.colorEstimulos.Split('.');
+
+        //Dividir entre 255 para escalarlo entre 0 y 1
         colorEstimulos.r = float.Parse(vec[0]) / 255f;
         colorEstimulos.g = float.Parse(vec[1]) / 255f;
         colorEstimulos.b = float.Parse(vec[2]) / 255f;
 
         renderEstimulo.material.SetColor("_Color", new Color(colorEstimulos.r, colorEstimulos.g, colorEstimulos.b, 1));
 
-        //este metodo me calcula el radio del estimulo en funcion del tamanyo elegido por el usuario en el launcher
+        //este metodo calcula el radio del estimulo en funcion del tamanyo elegido por el usuario en el launcher
         float radio = calcularTamanyoEscalado(config.tamanyoEstimulos);
 
         //este metodo me cambia el tamanyo de los estimulos
@@ -60,11 +63,7 @@ public class CirculoExterior : MonoBehaviour
 
     public float calcularTamanyoEscalado(int tamanyo)
     {
-        //25 es el tamanyo minimo del estimulo,
-        //si se introduce un valor menor que 25 se asignará
-        //al estimulo el radio generado cuando se introduce 25
-        //por el contrario si se introduce un tamanyo mayor a 100
-        //se le asignará al estimulo el radio generado con el tamanyo=100
+        //Escala el tamanyo del estimulo entre 10 y 25 segun los valores recogidos en el launcher
         if (tamanyo <= 10)
         {
             tamanyo = 10;
@@ -107,13 +106,10 @@ public class CirculoExterior : MonoBehaviour
             tamanyo = 25;
         }
 
-        //ajustamos el tamaño maximo de los estimulos
-        // float radio = (float)tamanyo / 1500;
-
-
         return tamanyo;
     }
 
+    //Obtenemos el color de los numeros del modo avanzado
     public void obtenemosColorNumeros()
     {
 
@@ -126,11 +122,14 @@ public class CirculoExterior : MonoBehaviour
 
 
     }
+
+    //Obtenemos el nivel de juego A simple y B avanzado
     public void asignamosLetra()
     {
         TextMesh letraMesh = letraUsuario.GetComponent<TextMesh>();
         letraMesh.text = letra;
     }
+
     //genera tantos estimulos como se introduzcan
     public void generarEstimulo()
     {
@@ -138,10 +137,10 @@ public class CirculoExterior : MonoBehaviour
         {
             //genero posiciones aleatorias
             //establecen la situacion dentro del circuloExterior
-            //establecen la situacion dentro del circuloExterior
             float posicionX = Random.Range(-110f, 110f);
             float posicionZ = Random.Range(-110f, 110f);
 
+            //Comprobar las posiciones para no crearse dentro del circulo interior
             while (((posicionX < 40) && (-40 < posicionX)) && ((posicionZ < 40) && (-40 < posicionZ)))
             {
                 posicionX = Random.Range(-110f, 110f);
@@ -151,8 +150,8 @@ public class CirculoExterior : MonoBehaviour
             //posicionY establece la altura a la que se genera el estimulo
             float posicionY = 6f;
 
-            //estos estimulos son generados como hijos del circuloInterior
-            //se les asigna una posicion aleatoria
+            //estos estimulos son generados como hijos del circuloExterior
+            //se les asigna una posicion calculada anteriormente
             GameObject hijo = Instantiate(prefab) as GameObject;
             hijo.transform.parent = gameObject.transform;
             hijo.transform.position = new Vector3(posicionX, posicionY, posicionZ);
@@ -166,7 +165,8 @@ public class CirculoExterior : MonoBehaviour
     {
         gameObject.transform.Rotate(0, 0, (-1) * velocidad * Time.deltaTime);
     }
-    //saber el numero de fallos
+
+    //saber el numero de veces que el usuario falla 
     void OnMouseDown()
     {
         Fallos++;

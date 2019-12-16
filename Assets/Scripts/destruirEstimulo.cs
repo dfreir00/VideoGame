@@ -11,6 +11,8 @@ public class destruirEstimulo : MonoBehaviour
         Destroy(gameObject);
 
     }
+
+    //Si dos estimulos colisionan recalcula la posicion 
     public void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.name.Equals("Estimulo(Clone)"))
@@ -24,8 +26,8 @@ public class destruirEstimulo : MonoBehaviour
                 posx = Random.Range(-110, 110);
                 posz = Random.Range(-110, 110);
             }
-            //Destroy(collision.gameObject);
-            //collision.gameObject.transform.position = new Vector3(gameObject.transform.position.x + 1, gameObject.transform.position.y, gameObject.transform.position.z - 1);
+            
+            //Asigno la nueva posicion
             collision.gameObject.transform.position = new Vector3(posx, collision.gameObject.transform.position.y, posz);
 
         }

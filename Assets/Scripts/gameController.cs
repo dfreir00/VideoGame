@@ -71,12 +71,18 @@ public class gameController : MonoBehaviour
             //Sumamos segundos al tiempo de juego
             timeTotal += Time.deltaTime;
 
+            //Si el usuario ha destruido todos los estimulos finaliza
             if(circulo.transform.childCount == 1)
             {
+
                 bbdd.insertarResultados(crearJSONResultados());
                 bbdd.insertarEstado();
+
+                //Ocultamos el circulo de juego y mostramos la pantalla final
                 circulo.SetActive(false);
                 uiFin.SetActive(true);
+
+                //Cambiamos el estado de juego
                 estado = GameState.End;
             }
             

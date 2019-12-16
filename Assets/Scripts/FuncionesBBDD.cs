@@ -9,14 +9,16 @@ public class FuncionesBBDD : MonoBehaviour
     private string[] args;
     private int id = 0;
 
+    //Conecta con la base de datos 
     public void conectar()
     {
         //192.168.4.59 proconsi
         //192.168.1.42 casa
-        string connectionString = @"Data Source =192.168.4.59 ; user id = juego;password = root;Initial Catalog = VideoJuegosIristea;";
+        string connectionString = @"Data Source =10.130.59.2 ; user id = juego;password = root;Initial Catalog = VideoJuegosIristea;";
         conexion = new SqlConnection(connectionString);
     }
 
+    //Inserto los datos del juego obtenidos
     public void insertarResultados(Resultados objeto)
     {
         //Extraigo el id pasado como argumento para realizar las consultas
@@ -74,6 +76,7 @@ public class FuncionesBBDD : MonoBehaviour
         //Insertamos el id como parametro
         command.Parameters.AddWithValue("@id", id);
 
+        //Guardamos la configuracion del juego en resultados
         using (SqlDataReader reader = command.ExecuteReader())
         {
             Datos result = new Datos();
@@ -86,7 +89,7 @@ public class FuncionesBBDD : MonoBehaviour
 
             }
 
-            //convertimos los datos a json
+            //Convertimos los datos guardados en resultados en un json que tiene como estructura la clase Datos
             result = JsonUtility.FromJson<Datos>(resultados);
 
             //Cerramos la conexion

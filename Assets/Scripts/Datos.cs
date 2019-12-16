@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Datos
 {
+    //Clase utilizada como configuracion del juego
+
     public int velocidad;
     public int numeroEstimulos;
     public int tamanyoLetra;

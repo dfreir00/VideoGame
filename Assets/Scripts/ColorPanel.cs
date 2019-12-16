@@ -11,6 +11,7 @@ public class ColorPanel : MonoBehaviour
     {
 
         string[] vec = config.colorFondo.Split('.');
+        //Dividir entre 255 para escalarlo entre 0 y 1
         colorFondo.r = float.Parse(vec[0]) / 255f;
         colorFondo.g = float.Parse(vec[1]) / 255f;
         colorFondo.b = float.Parse(vec[2]) / 255f;
