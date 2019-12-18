@@ -8,7 +8,6 @@ public class CirculoExterior : MonoBehaviour
     private Datos config;
     private FuncionesBBDD bbdd;
     private static int fallos = 0;
-    private bool quedaEstimulo = false;
 
     public GameObject prefab;
     public GameObject letraUsuario;

@@ -3,29 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class gameController : MonoBehaviour
+public class GameController : MonoBehaviour
 {
     public GameObject uiPresentacion;//Panel de presentacion
     public GameObject uiFin;//Panel finalizado
     public GameObject circulo;//Circulo del juego
     public GameObject uiTextContador;//Cuenta atras
+    public GameObject panel;
 
     private enum GameState { Idle, Playing, End };//Enum de estados del juego
     private GameState estado = GameState.Idle;//Estado actual del juego
     private Text contador;//Texto de la cuenta atras
     private FuncionesBBDD bbdd;
     private CirculoExterior circuloScript;
-    private float timeCuentaAtras = 5;//Segundos cuenta atras
+    private float timeCuentaAtras = 9;//Segundos cuenta atras
     private float timeFin = 3;//Tiempo de espera al terminar
     private float timeTotal = 0;//Tiempo actual de juego
     private string[] args;//guardo los argumentos del proceso
-    private int id = 0;//Guardo el id del jugador
 
     // Start is called before the first frame update
     void Start()
     {
         //Desactivo el circulo de juego y la pantalla final
-        circulo.SetActive(false);
+        //circulo.SetActive(false);
         uiFin.SetActive(false);
 
         //Almaceno el componente de texto del contador
@@ -59,10 +59,11 @@ public class gameController : MonoBehaviour
         {
             //Cambiamos el estado y ocultamos el ui de presentacion
             estado = GameState.Playing;
-            uiPresentacion.SetActive(false);
+            panel.SetActive(false);
+            
 
             //Activamos el circulo de juego
-            circulo.SetActive(true);
+            //circulo.SetActive(true);
 
         }
         //Si el juego esta en proceso
@@ -92,6 +93,9 @@ public class gameController : MonoBehaviour
         {
             //Espero los segundos de la variable timeFin
             timeFin -= Time.deltaTime;
+
+            //Elimino el tiempo de preparacion del juego
+            timeTotal -= timeCuentaAtras;
 
             //Cuando termine la espera finalizo el juego
             if (timeFin < 0)

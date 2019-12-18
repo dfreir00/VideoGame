@@ -26,7 +26,12 @@ public class ColorPanel : MonoBehaviour
     {
         //Consigo la imagen del panel
         GameObject panel = GameObject.Find("Panel");
+        GameObject panel1 = GameObject.Find("panelInicial");
+
+
         Image imagen = panel.GetComponent<Image>();
+        Image imagen1 = panel1.GetComponent<Image>();
+
 
         //Accedo a la base de datos y guardo la configuracion
         FuncionesBBDD bbdd = new FuncionesBBDD();
@@ -37,6 +42,8 @@ public class ColorPanel : MonoBehaviour
 
         //Asigno el color a la imagen
         imagen.color = colorFondo;
+        imagen1.color = colorFondo;
+
     }
 
     // Update is called once per frame

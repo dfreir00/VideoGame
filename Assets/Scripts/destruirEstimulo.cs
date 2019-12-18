@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class destruirEstimulo : MonoBehaviour
+public class DestruirEstimulo : MonoBehaviour
 {
    
     //este metodo se utiliza para destruir los estimulos cuando vas clicando sobre ellos
