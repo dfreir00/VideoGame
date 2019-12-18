@@ -18,13 +18,14 @@ public class CirculoExterior : MonoBehaviour
     private static int numeroEstimulos;
     public int tamanyoLetra;
     private int tamanyoEstimulos;
-    public string letra;
+    private static string letra;
     public Color colorCirculo;
     public Color colorEstimulos;
     public Color colorNumeros;
 
     public int Fallos { get => fallos; set => fallos = value; }
     public int NumeroEstimulos { get => numeroEstimulos; set => numeroEstimulos = value; }
+    public string Letra { get => letra; set => letra = value; }
 
     //Lee el string del color lo divide por . y asigna al circulo el color
     public void asignarColorCirculo()
@@ -70,7 +71,7 @@ public class CirculoExterior : MonoBehaviour
         {
             tamanyo = 10;
         }
-        else if (tamanyo > 10 && tamanyo <= 20 )
+        else if (tamanyo > 10 && tamanyo <= 20)
         {
             tamanyo = 12;
         }
@@ -129,11 +130,11 @@ public class CirculoExterior : MonoBehaviour
     public void asignamosLetra()
     {
         TextMesh letraMesh = letraUsuario.GetComponent<TextMesh>();
-        letraMesh.text = letra;
+        letraMesh.text = Letra;
     }
 
     //genera tantos estimulos como se introduzcan
-    public void generarEstimulo()
+    public void generarEstimuloAvanzado()
     {
         for (int i = 0; i < NumeroEstimulos; i++)
         {
@@ -169,6 +170,37 @@ public class CirculoExterior : MonoBehaviour
         }
 
     }
+
+    public void generarEstimuloSimple()
+    {
+        for (int i = 0; i < NumeroEstimulos; i++)
+        {
+            //genero posiciones aleatorias
+            //establecen la situacion dentro del circuloExterior
+            float posicionX = Random.Range(-110f, 110f);
+            float posicionZ = Random.Range(-110f, 110f);
+
+            //Comprobar las posiciones para no crearse dentro del circulo interior
+            while (((posicionX < 40) && (-40 < posicionX)) && ((posicionZ < 40) && (-40 < posicionZ)))
+            {
+                posicionX = Random.Range(-110f, 110f);
+                posicionZ = Random.Range(-110f, 110f);
+            }
+
+            //posicionY establece la altura a la que se genera el estimulo
+            float posicionY = 6f;
+
+            //estos estimulos son generados como hijos del circuloExterior
+            //se les asigna una posicion calculada anteriormente
+            GameObject prefabEstimulo = Instantiate(prefab) as GameObject;
+            prefabEstimulo.transform.parent = gameObject.transform;
+            prefabEstimulo.name = "Estimulo " + cont;
+            prefabEstimulo.transform.position = new Vector3(posicionX, posicionY, posicionZ);
+
+            cont++;
+        }
+    }
+
     //gira el circuloa a la velocidad indicada
     public void rotar()
     {
@@ -196,7 +228,7 @@ public class CirculoExterior : MonoBehaviour
         NumeroEstimulos = config.numeroEstimulos;
         tamanyoLetra = config.tamanyoLetra;
         tamanyoEstimulos = config.tamanyoEstimulos;
-        letra = config.letra;
+        Letra = config.letra;
 
         asignamosLetra();
 
@@ -209,7 +241,16 @@ public class CirculoExterior : MonoBehaviour
         //Asignamos las variables del estimulo
         asignarColorYTamEstimulos();
 
-        generarEstimulo();
+        //Genera el tipo de estimulos segun la opcion de juego
+        if (Letra.Equals("A")){
+            generarEstimuloSimple();
+
+        }
+        else
+        {
+            generarEstimuloAvanzado();
+
+        }
 
     }
 

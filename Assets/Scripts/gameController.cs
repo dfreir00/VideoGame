@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour
     private GameState estado = GameState.Idle;//Estado actual del juego
     private Text contador;//Texto de la cuenta atras
     private FuncionesBBDD bbdd;
+    private DestruirEstimulo destruirEstimulo;
     private CirculoExterior circuloScript;
     private float timeCuentaAtras = 9;//Segundos cuenta atras
     private float timeFin = 3;//Tiempo de espera al terminar
@@ -34,6 +35,8 @@ public class GameController : MonoBehaviour
         //Instancio la clase de la base de datos
         bbdd = new FuncionesBBDD();
         circuloScript = new CirculoExterior();
+        destruirEstimulo = new DestruirEstimulo();
+
     }
 
     // Update is called once per frame
@@ -114,7 +117,7 @@ public class GameController : MonoBehaviour
         Resultados resultadosJSON = new Resultados()
         {
             numeroClicks = circuloScript.NumeroEstimulos,
-            fallos = circuloScript.Fallos,
+            fallos = circuloScript.Fallos + destruirEstimulo.Fallos,
             tiempo = timeTotal.ToString("f2")
 
         };
