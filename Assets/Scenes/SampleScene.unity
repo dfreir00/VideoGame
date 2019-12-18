@@ -472,6 +472,7 @@ GameObject:
   - component: {fileID: 624254026}
   - component: {fileID: 624254028}
   - component: {fileID: 624254027}
+  - component: {fileID: 624254029}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -533,6 +534,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 624254025}
   m_CullTransparentMesh: 0
+--- !u!114 &624254029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624254025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef07931d7d571d64184c4367aa5b9fe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorFondo: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &809238341
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,7 +1006,6 @@ GameObject:
   - component: {fileID: 1393582287}
   - component: {fileID: 1393582289}
   - component: {fileID: 1393582288}
-  - component: {fileID: 1393582290}
   m_Layer: 5
   m_Name: panelInicial
   m_TagString: Untagged
@@ -1055,19 +1068,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1393582286}
   m_CullTransparentMesh: 0
---- !u!114 &1393582290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1393582286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef07931d7d571d64184c4367aa5b9fe4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colorFondo: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1641788903 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2004622019439029955, guid: 61034ef0983af9f42b217fb35111b666,
@@ -1086,6 +1086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48a97a715506424087a97dd0c5583f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numeros: {fileID: 4909830736759214324, guid: 2e6a618fa576b8846bcff462cbd56b4c, type: 3}
   prefab: {fileID: 3277844718706577098, guid: 82166c31c4ff72e4f8cd16a512dfa138, type: 3}
   letraUsuario: {fileID: 511725219}
   velocidad: 0

@@ -4,18 +4,25 @@ using UnityEngine;
 
 public class DestruirEstimulo : MonoBehaviour
 {
-   
+    private static int cont = 1;
+
     //este metodo se utiliza para destruir los estimulos cuando vas clicando sobre ellos
     public void OnMouseDown()
     {
-        Destroy(gameObject);
+        string nombre = "Estimulo "+cont;
+        if (gameObject.name.Equals(nombre)){
+            Destroy(gameObject);
+            cont++;
+        }
+
+        
 
     }
 
     //Si dos estimulos colisionan recalcula la posicion 
     public void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.name.Equals("Estimulo(Clone)"))
+        if (collision.gameObject.CompareTag("Estimulo"))
         {
             int posx = Random.Range(-110, 110);
             int posz = Random.Range(-110, 110);

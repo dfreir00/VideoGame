@@ -8,6 +8,9 @@ public class CirculoExterior : MonoBehaviour
     private Datos config;
     private FuncionesBBDD bbdd;
     private static int fallos = 0;
+    private int cont = 1;
+
+    public GameObject numeros;
 
     public GameObject prefab;
     public GameObject letraUsuario;
@@ -151,11 +154,18 @@ public class CirculoExterior : MonoBehaviour
 
             //estos estimulos son generados como hijos del circuloExterior
             //se les asigna una posicion calculada anteriormente
-            GameObject hijo = Instantiate(prefab) as GameObject;
-            hijo.transform.parent = gameObject.transform;
-            hijo.transform.position = new Vector3(posicionX, posicionY, posicionZ);
-            
+            GameObject prefabEstimulo = Instantiate(prefab) as GameObject;
+            prefabEstimulo.transform.parent = gameObject.transform;
+            prefabEstimulo.name = "Estimulo " + cont;
+            prefabEstimulo.transform.position = new Vector3(posicionX, posicionY, posicionZ);
 
+            //Numeros de los estimulos
+            GameObject numerosEstimulo = Instantiate(numeros) as GameObject;
+            numerosEstimulo.transform.parent = prefabEstimulo.transform;
+            numerosEstimulo.transform.position = new Vector3(posicionX, 7f, posicionZ);
+            numerosEstimulo.GetComponent<TextMesh>().text = cont.ToString();
+
+            cont++;
         }
 
     }
@@ -198,6 +208,7 @@ public class CirculoExterior : MonoBehaviour
 
         //Asignamos las variables del estimulo
         asignarColorYTamEstimulos();
+
         generarEstimulo();
 
     }
